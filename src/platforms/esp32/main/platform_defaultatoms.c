@@ -117,6 +117,11 @@ static const char *const parity_atom = "\x6" "parity";
 static const char *const even_atom = "\x4" "even";
 static const char *const odd_atom = "\x3" "odd";
 
+// M5
+static const char *const m5_show_message_atom = "\xF" "m5_show_message";
+static const char *const m5_button_read_atom = "\xE" "m5_button_read";
+
+
 void platform_defaultatoms_init(GlobalContext *glb)
 {
     int ok = 1;
@@ -219,6 +224,9 @@ void platform_defaultatoms_init(GlobalContext *glb)
     ok &= globalcontext_insert_atom(glb, even_atom) == EVEN_ATOM_INDEX;
     ok &= globalcontext_insert_atom(glb, odd_atom) == ODD_ATOM_INDEX;
 
+    // M5
+    ok &= globalcontext_insert_atom(glb, m5_show_message_atom) == M5_SHOW_MESSAGE_ATOM_INDEX;
+    ok &= globalcontext_insert_atom(glb, m5_button_read_atom) == M5_BUTTON_READ_ATOM_INDEX;
 
     if (!ok) {
         abort();

@@ -57,6 +57,15 @@ RUN git clone https://github.com/libopencm3/libopencm3.git && \
 # Export LIBOPENCM3_DIR
 ENV LIBOPENCM3_DIR /tools/stm32/libopencm3
 
+RUN wget https://packages.erlang-solutions.com/erlang-solutions_2.0_all.deb && \
+dpkg -i erlang-solutions_2.0_all.deb && \
+apt-get update
+
+RUN apt-get install -y esl-erlang=1:22.3.4.9-1 
+RUN apt-get install -y elixir=1.9.4-1 zlib1g-dev
+
+RUN apt-get install -y vim
+
 # Get back to root directory
 WORKDIR /root
 

@@ -1,0 +1,6 @@
+[submodule "src/platforms/esp32/components/M5Stack"]
+	path = src/platforms/esp32/components/M5Stack
+	url = https://github.com/m5stack/m5stack.git
+[submodule "src/platforms/esp32/components/arduino-esp32"]
+	path = src/platforms/esp32/components/arduino-esp32
+	url = https://github.com/espressif/arduino-esp32.git

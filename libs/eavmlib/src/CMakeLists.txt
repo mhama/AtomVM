@@ -21,6 +21,7 @@ set(ERLANG_MODULES
     timer_manager
     timestamp_util
     uart
+    m5
 )
 
 pack_archive(eavmlib ${ERLANG_MODULES})
