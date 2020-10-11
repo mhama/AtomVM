@@ -29,6 +29,7 @@
 #include "network.h"
 #include "uart_driver.h"
 #include "defaultatoms.h"
+#include "m5stack_driver.h"
 
 #include "trace.h"
 
@@ -184,6 +185,8 @@ Context *sys_create_port(GlobalContext *glb, const char *driver_name, term opts)
         i2cdriver_init(new_ctx, opts);
     } else if (!strcmp(driver_name, "uart")) {
         uart_driver_init(new_ctx, opts);
+    } else if (!strcmp(driver_name, "m5")) {
+        m5_port_init(new_ctx, opts);
     } else {
         return sys_create_port_fallback(new_ctx, driver_name, opts);
     }

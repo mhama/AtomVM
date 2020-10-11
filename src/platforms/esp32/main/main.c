@@ -38,7 +38,7 @@
 #include "esp32_sys.h"
 #include "nvs_flash.h"
 
-#include "m5stack_bridge.h"
+#include "m5stack_driver.h"
 
 const void *avm_partition(const char *partition_name, int *size);
 
@@ -70,8 +70,9 @@ void app_main()
 
     socket_driver_init(glb);
 
-    M5Stack_Init();
-    M5Stack_ShowMessageAndWait("Hello from AtomVM !");
+    // m5 specific
+    m5_driver_init(glb);
+    M5Stack_ShowMessageAndWait("Hello from AtomVM (m5_driver)!");
 
     if (!avmpack_is_valid(main_avm, size) || !avmpack_find_section_by_flag(main_avm, BEAM_START_FLAG, &startup_beam, &startup_beam_size, &startup_module_name))
     {
